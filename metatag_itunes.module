@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Primary hook implementations for Metatag: iTunes.
+ */
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function metatag_itunes_ctools_plugin_api($owner, $api) {
+  if ($owner == 'metatag' && $api == 'metatag') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function metatag_itunes_theme() {
+  $info['metatag_itunes'] = array(
+    'render element' => 'element',
+  );
+
+  return $info;
+}
+
+/**
+ * Theme callback for an itunes meta tag.
+ */
+function theme_metatag_itunes($variables) {
+  $element = &$variables['element'];
+  element_set_attributes($element, array('#name' => 'property', '#value' => 'content'));
+  unset($element['#value']);
+  return theme('html_tag', $variables);
+}

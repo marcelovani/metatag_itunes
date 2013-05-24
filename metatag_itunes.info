@@ -1,0 +1,6 @@
+name = Meta tags: iTunes
+description = "Provides support for the itunes meta tag.
+package = Meta tags
+core = 7.x
+dependencies[] = metatag
+project = "metatag"
