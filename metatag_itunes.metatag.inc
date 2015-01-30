@@ -29,15 +29,15 @@ function metatag_itunes_metatag_config_default_alter(array &$configs) {
 function metatag_itunes_metatag_info() {
   $info['groups']['itunes'] = array(
     'label' => t('Apple iTunes'),
-    'description' => t('Meta tags specially for apple iTunes products'),
+    'description' => t('Meta tag specially for apple iTunes products'),
     'form' => array(
       '#weight' => 60,
     ),
   );
 
   $info['tags']['apple-itunes-app'] = array(
-    'label' => t('Apple iTunes app id'),
-    'description' => t('Your app-id'),
+    'label' => t('app-id or full attribute string'),
+    'description' => t('Enter your app-id or a full attribute string eg; app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL'),
     'class' => 'DrupalTextMetaTag',
     'group' => 'itunes',
     'element' => array(
