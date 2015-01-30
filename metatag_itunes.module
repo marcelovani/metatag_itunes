@@ -29,6 +29,7 @@ function metatag_itunes_theme() {
  */
 function theme_metatag_itunes($variables) {
   $element = &$variables['element'];
+  $element['#value'] = 'app-id=' . $element['#value'];
   element_set_attributes($element, array('#name' => 'name', '#value' => 'content'));
   unset($element['#value']);
   return theme('html_tag', $variables);
