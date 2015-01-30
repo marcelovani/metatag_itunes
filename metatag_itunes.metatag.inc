@@ -11,11 +11,14 @@ function metatag_itunes_metatag_config_default_alter(array &$configs) {
   foreach ($configs as &$config) {
     switch ($config->instance) {
       case 'global':
+      case 'global:frontpage':
+      case 'node':
+      case 'taxonomy_term':
+      case 'user':
         $config->config += array(
           'apple-itunes-app' => array('value' => 'app-id'),
         );
         break;
-
     }
   }
 }
@@ -37,7 +40,6 @@ function metatag_itunes_metatag_info() {
     'description' => t('Your app-id'),
     'class' => 'DrupalTextMetaTag',
     'group' => 'itunes',
-    'context' => array('global'),
     'element' => array(
       '#theme' => 'metatag_itunes',
     ),
